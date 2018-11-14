@@ -38,41 +38,8 @@ public class GUI extends JFrame implements FocusListener {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-/*    public static String getInput(){
-        return input.getText();
-    }
-
-    public static  String getOutput(){
-        return output.getText();
-    }*/
-
-    private static void drawSplashScreen(Graphics2D graphics, int frame){
-        graphics.setComposite(AlphaComposite.Clear);
-        graphics.fillRect(120,140,200,40);
-        graphics.setPaintMode();
-        graphics.setColor(Color.BLACK);
-        graphics.drawString("Loading ML translator", 120, 150);
-    }
-
     public static  void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-/*        SplashScreen splash = SplashScreen.getSplashScreen();
-        if (splash == null) {
-            System.err.println("no splash screen available");
-            return;
-        }
-        Graphics2D graphics = splash.createGraphics();
-        int numFrames = 100;
-        for(int i = 0; i < numFrames; i++){
-            drawSplashScreen(graphics, i);
-            splash.update();
-            try {
-                Thread.sleep(90);
-            } catch(InterruptedException e) {
-            }
-            splash.close();
-        }*/
 
         try{
             new GUI().setVisible(true);
