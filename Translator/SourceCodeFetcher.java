@@ -16,17 +16,14 @@ public class SourceCodeFetcher {
 		this.fileName = fileName;
 	}
 	public void saveSourceCodeToFile() throws Exception{
-		//Set URL
 		URL url = new URL(address);
 		URLConnection spoof = url.openConnection();
 		spoof.setRequestProperty( "User-Agent", "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; H010818)" );
 		BufferedReader in = new BufferedReader(new InputStreamReader(spoof.getInputStream()));
 		String strLine = "";
 		BufferedWriter writer = null;
-		//Loop through every line in the source
 		StringBuilder ans = new StringBuilder();
 		while ((strLine = in.readLine()) != null) {
-			//Prints each line to the console
 			ans.append(strLine + "\n");
 		}
 		try {
