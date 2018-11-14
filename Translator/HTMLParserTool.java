@@ -67,7 +67,7 @@ public class HTMLParserTool {
 		convert(sourceCode, destFile);
 	}
 
-	public static void main(String[] args) throws Exception {
+/*	public static void main(String[] args) throws Exception {
 		new HTMLParserTool("https://projecteuler.net/archives", "temp", "new22.html").run();
-	}
+	}*/
 }

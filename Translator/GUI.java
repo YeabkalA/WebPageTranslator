@@ -8,7 +8,9 @@ public class GUI extends  JFrame{
 
     private int NUM_ROWS = 3;
 
-    public GUI() {
+    public GUI(){
+
+
         setLayout(new GridLayout(NUM_ROWS, 1));
 
         input =  new JTextField("Input URL");
@@ -16,12 +18,7 @@ public class GUI extends  JFrame{
 
         translate = new JButton("Translate");
         translate.addActionListener(e -> {
-            try{
-                new HTMLParserTool(GUI.getInput(), "temp", GUI.getOutput()).run();
-            } catch (Exception ex){
-                System.err.println(ex.getMessage());
-            }
-
+            ThreadHandler.add(input.getText(), output.getText());
         });
 
         add(input);
@@ -40,7 +37,12 @@ public class GUI extends  JFrame{
         return output.getText();
     }
 
-    public static  void main(String[] args){
-        new GUI().setVisible(true);
+    public static  void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        try{
+            new GUI().setVisible(true);
+        } catch (Exception e){
+            System.err.println(e.getMessage());
+        }
     }
 }
