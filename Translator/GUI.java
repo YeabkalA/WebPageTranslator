@@ -1,14 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
-public class GUI extends JFrame implements FocusListener {
+public class GUI extends JFrame implements FocusListener, ActionListener {
     private static JTextField input;
     private static JTextField output;
     private static JButton translate;
+    private static JComboBox dropdown;
 
-    private int NUM_ROWS = 3;
+    private int NUM_ROWS = 4;
 
     private int WIDTH = 250;
     private int HEIGHT = 45;
@@ -30,8 +33,14 @@ public class GUI extends JFrame implements FocusListener {
             ThreadHandler.add(input.getText(), output.getText());
         });
 
+        String[] langs = {"Amharic", "French", "German", "Spanish"};
+        dropdown = new JComboBox(langs);
+        dropdown.setSelectedIndex(0);
+        dropdown.addActionListener(this);
+
         add(input);
         add(output);
+        add(dropdown);
         add(translate);
 
         pack();
@@ -56,6 +65,11 @@ public class GUI extends JFrame implements FocusListener {
 
     @Override
     public void focusLost(FocusEvent e) {
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
     }
 }
