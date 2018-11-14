@@ -126,7 +126,7 @@ public class HTMLParserTool {
 		
 		fetcher.saveSourceCodeToFile();
 		sourceCode = extractor.readFile(tempFile);
-		convert();
+		convertToTranslatableFormat();
 	}
 
 	public static void main(String[] args) throws Exception {
