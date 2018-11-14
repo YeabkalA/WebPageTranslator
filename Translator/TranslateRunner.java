@@ -1,3 +1,6 @@
+import java.awt.*;
+import java.net.URI;
+
 public class TranslateRunner implements Runnable {
     String url;
     String path;
@@ -13,6 +16,9 @@ public class TranslateRunner implements Runnable {
     public void run() {
         try{
             new HTMLParserTool(url, TEMP_DIR, path).run();
+            if(Desktop.isDesktopSupported()){
+                Desktop.getDesktop().browse(new URI(path));
+            }
         } catch (Exception ex){
             System.err.println(ex.getMessage());
         }
